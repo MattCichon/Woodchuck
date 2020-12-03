@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>   
+<style>
+	span:hover + div {
+  display: block;
+}</style> 
+</head>
+<body>
+<nav class="row navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/tweets" style="color: #ff8000">
+                <i  class="fas fa-paw fa-lg" id="nav"></i>  Woodchuck</a>
+                 
+                
+        </div>
+        
+        <div id="navbar">
+    <ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
+        <li><a href="/tweets">Home</a></li>
+        <li><a href="/tweets/new">New Chuck</a></li>
+    	<li><a href="../users">Woodchucks</a></li>
+    	<li><a href="/tags">Octothorpes</a></li>
+    </ul>
+    
+    <ul class="nav navbar-nav navbar-right">
+    <li sec:authorize="isAuthenticated()"><a style="pointer-events: none;color: #ff8000">
+      @<span sec:authentication="name"></span></a>
+    <li sec:authorize="isAuthenticated()"><a href="../logout">Logout</a></li>
+    <li sec:authorize="!isAuthenticated()"><a href="../login">Login</a></li>
+    
+ </ul>
+ </div>
+</div>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head th:replace="/fragments/header">  
+
+<title>Success!</title>
+</head>
+
+<body>
+    <div class="container">
+    	<div th:replace="fragments/navbar"></div>
+        <h2 class="success">You are signed up!</h2> 
+        <h3 class="success">Log in to continue</h3>
+        
+        <form th:action="@{/login}" method="get">
+		    <button class="btn btn-md btn-success btn-block" type="Submit">Log In!</button>
+		</form> 
+	</div>
+</body>
+</html>
